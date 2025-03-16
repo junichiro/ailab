@@ -3,12 +3,14 @@ weak-model: openrouter/anthropic/claude-3.5-sonnet
 editor-model: openrouter/anthropic/claude-3.5-sonnet
 cache-prompts: true
 cache-keepalive-pings: 1
-# openai-api-key: [your openrouter api key]
 openai-api-base: https://openrouter.ai/api/v1
 reasoning-effort: high
 thinking-tokens: 32000
 pretty: true
 code-theme: solarized-light
-
 read:
   - CONVENTIONS.md
+api-key:
+  - openai=
+  - openrouter=
+  - anthropic=
