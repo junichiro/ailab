@@ -2,12 +2,17 @@
 
 import boto3
 import json
+import os
+from dotenv import load_dotenv
 
 from botocore.exceptions import ClientError
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Create a Bedrock Runtime client in the AWS Region of your choice.
-# client = boto3.client("bedrock-runtime", region_name="us-east-1")
-client = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
+region_name = os.getenv('AWS_DEFAULT_REGION', 'ap-northeast-1')
+client = boto3.client("bedrock-runtime", region_name=region_name)
 
 # Set the model ID, e.g., Claude 3 Haiku.
 model_id = "anthropic.claude-3-5-sonnet-20240620-v1:0"
