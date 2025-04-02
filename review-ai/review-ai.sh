@@ -1,3 +1,4 @@
+#!/bin/bash
 file="$1"
 
 aider $file \
@@ -11,4 +12,3 @@ aider $file \
   --no-auto-commit \
   --yes-always \
   --message "${file} はある Pull Request の差分をファイルに保存したものです。あなたはシニアエンジニアとしてこの差分ファイルを見てレビューをしてください。レビューは日本語で、また指摘箇所が明確にわかるようにファイル名と行数を明示してください。"
-
