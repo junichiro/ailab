@@ -11,7 +11,10 @@ from botocore.exceptions import ClientError
 load_dotenv()
 
 # Create a Bedrock Runtime client in the AWS Region of your choice.
-region_name = os.getenv('AWS_DEFAULT_REGION', 'ap-northeast-1')
+region_name = os.getenv('AWS_DEFAULT_REGION')
+if not region_name:
+    print("Warning: AWS_DEFAULT_REGION not set. Please configure your AWS region.")
+    region_name = 'ap-northeast-1'  # Default region
 client = boto3.client("bedrock-runtime", region_name=region_name)
 
 # Set the model ID, e.g., Claude 3 Haiku.
