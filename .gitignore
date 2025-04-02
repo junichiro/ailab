@@ -9,3 +9,7 @@ wheels/
 # Virtual environments
 .venv
 uv.lock
+.aider*
+
+# User environments
+.env
