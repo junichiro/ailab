@@ -11,6 +11,10 @@ def check_aws_config():
         print(f"ユーザーARN: {caller_identity['Arn']}")
         return True
     
+    except botocore.exceptions.NoCredentialsError as e:
+        print("AWS credentials not found. Please configure your AWS credentials.")
+        print(str(e))
+        return False
     except Exception as e:
         print("AWS 設定に問題があります：")
         print(str(e))
