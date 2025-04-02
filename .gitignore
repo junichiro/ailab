@@ -10,3 +10,6 @@ wheels/
 .venv
 uv.lock
 .aider*
+
+# User environments
+.env
