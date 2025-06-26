@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm install)",
+      "Bash(git pull)",
+      "Bash(git status)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(node:*)",
+      "Bash(cd:*)",
+      "Bash(nohup:*)",
+      "Bash(kill:*)",
+      "Bash(python:*)",
+      "Bash(tailscale:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(pkill:*)",
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "Bash(pwd)",
+      "Bash(ps:*)",
+      "Bash(sleep:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp"
+  }
+}
+
