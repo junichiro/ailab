@@ -16,39 +16,40 @@ Follow these comprehensive steps to complete the entire workflow from issue anal
 7. Create a descriptive and meaningful commit message
 
 ## Testing and Verification
-8. **Perform comprehensive testing** to verify the fix works correctly:
+8. Check you can build the code
+9. **Perform comprehensive testing** to verify the fix works correctly:
    - Run unit tests if available
    - Perform manual testing of the fixed functionality
    - Verify that the fix addresses the original issue completely
    - Ensure no regressions are introduced
 
 ## Initial PR Creation
-9. Only after testing passes, push the changes and create a Pull Request
-10. Include a detailed PR description explaining:
+10. Only after testing passes, push the changes and create a Pull Request
+11. Include a detailed PR description explaining:
     - What issue was fixed
     - How it was fixed
     - What testing was performed
 
 ## Review Process Management
-11. **Wait 5 minutes** for other team members to provide initial reviews
-12. After the 5-minute wait period, check the PR for any review comments using `gh pr view`
-13. **Address all review feedback**:
+12. **Wait 5 minutes** for other team members to provide initial reviews
+13. After the 5-minute wait period, check the PR for any review comments using `gh pr view`
+14. **Address all review feedback**:
     - Read each comment carefully
     - Implement requested changes
     - Respond to questions or clarifications
     - Update code based on suggestions
 
 ## Post-Review Testing and Finalization
-14. **Perform testing again** after addressing review comments:
+15. **Perform testing again** after addressing review comments:
     - Re-run all previous tests
     - Verify that review feedback has been properly addressed
     - Ensure the fix still works as expected
-15. Once testing passes, commit the review-related changes with an appropriate commit message
-16. Push the updated changes to the PR branch
+16. Once testing passes, commit the review-related changes with an appropriate commit message
+17. Push the updated changes to the PR branch
 
 ## Merge and Cleanup
-17. **Merge the PR to main** using `gh pr merge` (use appropriate merge strategy)
-18. **Clean up branches thoroughly**:
+18. **Merge the PR to main** using `gh pr merge` (use appropriate merge strategy)
+19. **Clean up branches thoroughly**:
     - Switch back to main branch: `git checkout main`
     - Pull latest changes: `git pull origin main`
     - Delete local feature branch: `git branch -d <branch-name>`
@@ -58,7 +59,7 @@ Follow these comprehensive steps to complete the entire workflow from issue anal
 
 ## Important Notes
 - Always use the GitHub CLI (`gh`) for all GitHub-related operations
-- Ensure each testing phase is thorough before proceeding
+- Ensure each testing phase is thorough before proceeding, and confirm to be able to build
 - Do not skip the review waiting period - collaboration is important
 - Address ALL review comments before proceeding to merge
 - Complete cleanup is essential to maintain a clean repository state
