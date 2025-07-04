@@ -122,6 +122,14 @@ try {
 3. **Maintainability**: Future changes should be easy
 4. **Performance**: Optimize only when necessary
 
+## Build Quality Standards
+
+### Warning Resolution Policy
+- **All warnings should be resolved**, even if they appear to have no immediate impact
+- Warnings often indicate potential issues that may become problematic in the future
+- Clean builds with zero warnings improve code quality and maintainability
+- Warnings can mask important issues - keep the build output clean to spot real problems quickly
+
 ## Code Review Checklist
 
 ### Must Check
