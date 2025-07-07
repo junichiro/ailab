@@ -20,4 +20,6 @@ Please review and address the comments in the PR.
 4. Execute appropriate code fixes for actionable items
 5. Provide clear explanations for changes made
 6. **Explicitly state** when comments are being skipped and why
+7. Push the changes to the remote repository
+8. Request additional code review from Gemini by commenting on the PR: `@gemini-code-assist review the latest changes`
 
