@@ -43,8 +43,13 @@ test_required_elements() {
     fi
     
     # --privateフラグの確認
-    if ! echo "$content" | grep -q '\-\-private'; then
+    if ! echo "$content" | grep -q -- '--private'; then
         errors+=("--privateフラグが含まれていません")
+    fi
+    
+    # --gitignoreフラグの確認
+    if ! echo "$content" | grep -q -- '--gitignore'; then
+        errors+=("--gitignoreフラグが含まれていません")
     fi
     
     if [ ${#errors[@]} -eq 0 ]; then

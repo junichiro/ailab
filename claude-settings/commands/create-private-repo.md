@@ -6,7 +6,7 @@
 
 1. **リポジトリ名の検証**
    - `$ARGUMENTS`が空でないことを確認
-   - GitHubの命名規則（英数字、ハイフン、アンダースコアのみ）に準拠しているか検証
+   - GitHubの命名規則（英数字、ハイフン、アンダースコア、ドットのみ）に準拠しているか検証
    - 名前が適切でない場合は、修正案を提示
 
 2. **既存リポジトリの確認**
@@ -18,7 +18,7 @@
 3. **プライベートリポジトリの作成**
    - 以下のコマンドを実行:
      ```bash
-     gh repo create $ARGUMENTS --private --description "Created by Claude Code" --clone
+     gh repo create $ARGUMENTS --private --description "Created by Claude Code" --clone --gitignore "Node,Python,macOS,Windows"
      ```
    - 成功メッセージとリポジトリURLを確認
 
@@ -38,12 +38,11 @@
      
      [使用方法をここに記入]
      ```
-   - 汎用的な.gitignoreを作成（Node.js, Python, macOS, Windows用のパターンを含む）
    - 初期コミットの作成:
      ```bash
      git add .
      git commit -m "Initial commit with README and .gitignore"
-     git push origin main
+     git push origin HEAD
      ```
 
 5. **完了報告**
