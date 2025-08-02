@@ -2,14 +2,48 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Structure
+## プロジェクト概要
 
-This is an experimental AI laboratory with multiple AI-powered tools and scripts:
+AILabは、様々なAIツールやスクリプトを実験・開発するための統合リポジトリです。Claude Code、Aider、AWS Bedrockなどの最新AIツールを活用し、開発効率の向上を目指しています。
 
-- **aider-bedrock/**: Setup for using Aider with AWS Bedrock models, including health check scripts
-- **review-ai/**: AI-powered code review tool using Aider with o3-mini model
-- **instructions/**: AI assistant personas and instructions (poker advisor)
-- **main.py**: Simple entry point for the project
+## プロジェクト構造
+
+### ディレクトリ構成と役割
+
+- **aider-bedrock/**: AWS BedrockでAiderを使用するためのセットアップと検証ツール
+  - `check/`: AWS CLIとBedrockの接続確認スクリプト
+  - AWS Bedrockモデルとの統合設定ファイル
+
+- **claude-settings/**: Claude Code用のカスタム設定とコマンド
+  - **commands/**: カスタムスラッシュコマンド定義（重要）
+    - `clear-merged-branches.md`: マージ済みブランチの削除コマンド
+    - `create-private-repo.md`: プライベートGitHubリポジトリ作成コマンド
+    - `issue.md`, `issue-full.md`: GitHub Issue作成用コマンド
+    - `pr-review-response.md`: PRレビュー応答生成コマンド
+  - `settings.json`: Claude Code設定ファイル
+  - `CLAUDE.md`: claude-settings固有の指示
+
+- **review-ai/**: AI駆動のコードレビューツール
+  - `review-ai.sh`: o3-miniモデルを使用した自動レビュースクリプト
+  - diffファイルを入力として日本語でのコードレビューを実行
+
+- **instructions/**: AIアシスタント用のペルソナと指示定義
+  - `poker-advisor.md`: ポーカーアドバイザーペルソナ
+  - 他のAIアシスタント用指示を追加可能
+
+- **install-claude-settings.sh**: Claude Code設定の自動インストールスクリプト
+
+- **main.py**: プロジェクトのエントリーポイント
+
+### ファイルタイプ別の配置ガイドライン
+
+| ディレクトリ | 配置すべきファイル |
+|------------|----------------|
+| `/` (ルート) | README.md、CLAUDE.md、CONVENTIONS.md、pyproject.toml、設定スクリプト |
+| `aider-bedrock/` | AWS Bedrock関連の設定、検証スクリプト、統合コード |
+| `claude-settings/commands/` | Claude Code用カスタムコマンド（.mdファイル） |
+| `review-ai/` | コードレビュー関連のスクリプト、設定、テンプレート |
+| `instructions/` | AIアシスタント用のペルソナ定義、プロンプトテンプレート |
 
 ## Development Environment
 

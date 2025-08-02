@@ -1,4 +1,4 @@
-laude Code Global Development Style Configuration
+Claude Code Global Development Style Configuration
 
 ## Development Process
 
@@ -30,6 +30,40 @@ describe('Calculator', () => {
       expect(add(-1, 2)).toBe(1);
     });
   });
+});
+```
+
+## Library Usage Requirements
+
+### Mandatory Library Research Process
+When instructed to use a specific library:
+
+1. **Web Search Verification** (必須)
+   - Always perform a web search for the library name first
+   - Verify the library's current features, API, and best practices
+   - Check for recent updates or breaking changes
+   - Example: When instructed to use "React Hook Form", search for "React Hook Form documentation latest"
+
+2. **Context7 MCP Integration** (利用可能な場合は必須)
+   - If Context7 MCP is available, use it to load library documentation
+   - First call `resolve-library-id` to get the Context7-compatible library ID
+   - Then use `get-library-docs` to load comprehensive documentation
+   - This ensures implementation follows the latest official documentation
+
+### Implementation Example
+```typescript
+// 例: ライブラリ利用指示を受けた場合のプロセス
+// 1. Web Search: "tanstack query v5 documentation"
+// 2. Context7: resolve-library-id("tanstack-query")
+// 3. Context7: get-library-docs("/tanstack/query/v5.x.x")
+// 4. 最新のドキュメントに基づいて実装
+
+import { useQuery } from '@tanstack/react-query';
+
+// ドキュメントで確認した最新のAPIを使用
+const { data, error, isLoading } = useQuery({
+  queryKey: ['users'],
+  queryFn: fetchUsers,
 });
 ```
 
@@ -137,6 +171,7 @@ try {
 - [ ] Do tests clearly express intent?
 - [ ] Is error handling appropriate?
 - [ ] Are names appropriate and intentions clear?
+- [ ] Have specified libraries been properly researched via web search and Context7?
 
 ### Recommendations
 - [ ] Are functions within 10 lines?
@@ -181,16 +216,22 @@ Closes #123
    - Always write tests first when implementing new features
    - Confirm tests are RED before proceeding to implementation
 
-2. **Incremental Implementation**
+2. **Library Research is Mandatory**
+   - When instructed to use a library, ALWAYS search for its documentation first
+   - Use Context7 MCP when available to load comprehensive documentation
+   - Never implement based on assumptions or outdated knowledge
+
+3. **Incremental Implementation**
    - Don't try to write perfect code at once, improve incrementally
    - First make it work, then refactor
 
-3. **Language Usage**
+4. **Language Usage**
    - Write comments in Japanese
    - Write test case descriptions in Japanese
    - Use English for code itself
 
-4. **Thorough Confirmation**
+5. **Thorough Confirmation**
    - Confirm approach before making large changes
    - Follow existing code style when present
+   - Verify library usage against official documentation
 
