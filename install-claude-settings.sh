@@ -42,6 +42,7 @@ fi
 print_info "Creating Claude Code directories..."
 mkdir -p "$CLAUDE_DIR"
 mkdir -p "$CLAUDE_DIR/commands"
+mkdir -p "$CLAUDE_DIR/agents"
 
 # Backup existing CLAUDE.md if it exists
 if [ -f "$CLAUDE_DIR/CLAUDE.md" ]; then
@@ -74,6 +75,29 @@ set -e  # Re-enable exit on error
 
 print_info "✓ Copied $copied_count command files to $CLAUDE_DIR/commands/"
 
+# Copy agent files if directory exists
+if [ -d "$SOURCE_DIR/agents" ]; then
+    print_info "Copying agent files..."
+    agents_count=0
+    set +e  # Temporarily disable exit on error for the loop
+    for file in "$SOURCE_DIR/agents/"*; do
+        if [ -f "$file" ]; then
+            filename=$(basename "$file")
+            if cp "$file" "$CLAUDE_DIR/agents/$filename"; then
+                print_info "✓ Copied $filename"
+                agents_count=$((agents_count + 1))
+            else
+                print_error "Failed to copy $filename"
+            fi
+        fi
+    done
+    set -e  # Re-enable exit on error
+    print_info "✓ Copied $agents_count agent files to $CLAUDE_DIR/agents/"
+else
+    print_warning "No agents directory found in source, skipping agents installation"
+    agents_count=0
+fi
+
 # Display installation summary
 echo
 print_info "Claude Code settings installed successfully!"
@@ -81,5 +105,8 @@ echo
 print_info "Installed files:"
 print_info "  - $CLAUDE_DIR/CLAUDE.md"
 print_info "  - $CLAUDE_DIR/commands/ (${copied_count} files)"
+if [ $agents_count -gt 0 ]; then
+    print_info "  - $CLAUDE_DIR/agents/ (${agents_count} files)"
+fi
 echo
-print_info "You can now use the custom commands in Claude Code!"
+print_info "You can now use the custom commands and agents in Claude Code!"
