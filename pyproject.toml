@@ -8,7 +8,7 @@ authors = [
     {name = "Junichiro Tobe"}
 ]
 dependencies = [
-    "boto3>=1.35.80",
+    "boto3>=1.40.56",
     "httpx>=0.28.1",
     "pydantic>=2.10.3",
     "typer>=0.15.1",
@@ -33,7 +33,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["."]
-only-include = ["main.py"]
+only-include = ["main.py", "constants.py"]
 
 [tool.black]
 line-length = 88

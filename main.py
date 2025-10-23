@@ -7,6 +7,8 @@ from typing import Optional
 import typer
 from rich.console import Console
 
+from constants import DEFAULT_BEDROCK_MODEL
+
 app = typer.Typer(help="AI Lab - Tools for AI-assisted development")
 console = Console()
 
@@ -18,7 +20,7 @@ def main() -> None:
 
 @app.command()
 def aider(
-    model: str = typer.Option("anthropic.claude-3-5-sonnet-20241022-v2:0", help="Bedrock model to use"),
+    model: str = typer.Option(DEFAULT_BEDROCK_MODEL, help="Bedrock model to use"),
     context: Optional[str] = typer.Option(None, help="Path to context files"),
 ) -> None:
     """
@@ -35,7 +37,7 @@ def aider(
 @app.command()
 def review(
     path: str = typer.Argument(..., help="Path to code to review"),
-    model: str = typer.Option("anthropic.claude-3-5-sonnet-20241022-v2:0", help="Bedrock model to use"),
+    model: str = typer.Option(DEFAULT_BEDROCK_MODEL, help="Bedrock model to use"),
 ) -> None:
     """
     Run an AI-powered code review on the specified code.

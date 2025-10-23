@@ -3,9 +3,15 @@
 import boto3
 import json
 import os
-from dotenv import load_dotenv
+import sys
+from pathlib import Path
 
+# Add the parent directory to the path to import constants
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
+from dotenv import load_dotenv
 from botocore.exceptions import ClientError
+from constants import DEFAULT_BEDROCK_MODEL, DEFAULT_AWS_REGION
 
 # Load environment variables from .env file
 load_dotenv()
@@ -13,12 +19,12 @@ load_dotenv()
 # Create a Bedrock Runtime client in the AWS Region of your choice.
 region_name = os.getenv('AWS_DEFAULT_REGION')
 if not region_name:
-    print("Warning: AWS_DEFAULT_REGION not set. Please configure your AWS region.")
-    region_name = 'ap-northeast-1'  # Default region
+    print(f"Warning: AWS_DEFAULT_REGION not set. Using default: {DEFAULT_AWS_REGION}")
+    region_name = DEFAULT_AWS_REGION
 client = boto3.client("bedrock-runtime", region_name=region_name)
 
-# Set the model ID - Claude 3.5 Sonnet v2 (latest as of Oct 2025).
-model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
+# Set the model ID from constants.
+model_id = DEFAULT_BEDROCK_MODEL
 
 # Define the prompt for the model.
 prompt = "Describe the purpose of a 'hello world' program in one line."
