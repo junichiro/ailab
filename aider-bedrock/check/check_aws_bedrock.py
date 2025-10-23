@@ -17,8 +17,8 @@ if not region_name:
     region_name = 'ap-northeast-1'  # Default region
 client = boto3.client("bedrock-runtime", region_name=region_name)
 
-# Set the model ID, e.g., Claude 3 Haiku.
-model_id = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+# Set the model ID - Claude 3.5 Sonnet v2 (latest as of Oct 2025).
+model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
 
 # Define the prompt for the model.
 prompt = "Describe the purpose of a 'hello world' program in one line."

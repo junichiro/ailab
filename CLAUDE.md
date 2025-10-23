@@ -79,7 +79,7 @@ python aider-bedrock/check/check_aws_bedrock.py
 ### AWS Bedrock Setup
 - Uses boto3 for AWS Bedrock API access
 - Requires AWS credentials and region configuration
-- Default model: `anthropic.claude-3-5-sonnet-20240620-v1:0`
+- Default model: `anthropic.claude-3-5-sonnet-20241022-v2:0` (Claude 3.5 Sonnet v2)
 - Health check scripts validate AWS CLI and Bedrock connectivity
 
 ### Aider Integration

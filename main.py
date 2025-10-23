@@ -18,7 +18,7 @@ def main() -> None:
 
 @app.command()
 def aider(
-    model: str = typer.Option("claude-3-sonnet-20240229", help="Bedrock model to use"),
+    model: str = typer.Option("anthropic.claude-3-5-sonnet-20241022-v2:0", help="Bedrock model to use"),
     context: Optional[str] = typer.Option(None, help="Path to context files"),
 ) -> None:
     """
@@ -35,7 +35,7 @@ def aider(
 @app.command()
 def review(
     path: str = typer.Argument(..., help="Path to code to review"),
-    model: str = typer.Option("claude-3-sonnet-20240229", help="Bedrock model to use"),
+    model: str = typer.Option("anthropic.claude-3-5-sonnet-20241022-v2:0", help="Bedrock model to use"),
 ) -> None:
     """
     Run an AI-powered code review on the specified code.
