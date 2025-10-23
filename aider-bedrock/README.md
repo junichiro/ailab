@@ -32,7 +32,7 @@ This guide explains how to set up and use Aider with AWS Bedrock models.
 
 1. Start Aider with the Bedrock model:
    ```
-   aider --model bedrock/anthropic.claude-3-sonnet-20240320-v1:0
+   aider --model bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0
    ```
 
 2. Aider will now use the specified Bedrock model for code assistance and generation.
